@@ -1,0 +1,7 @@
+# Local demo data and database files
+/data/
+*.mv.db
+*.trace.db
+
+# macOS
+.DS_Store
