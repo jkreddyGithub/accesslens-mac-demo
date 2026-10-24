@@ -1,5 +1,5 @@
 langchain
 langgraph
-mcp
+mcp>=1.9,<2
 python-dotenv
 pydantic
