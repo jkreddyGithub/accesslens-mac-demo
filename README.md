@@ -3,6 +3,30 @@
 A packaged Mac demo for reviewing synthetic access data. The demo records review
 decisions locally and does not change real access.
 
+## MCP-assisted review workflow
+
+The optional Python workflow in [main.py](./main.py) demonstrates how MCP-sourced
+identity and risk context can extend an entitlement review. A LangGraph workflow
+enriches a review item with a risk score, risk flags, and a manager contact, then
+generates an explanation and marks the item as pending human review. The example
+prints a simulated reviewer decision and updates the workflow state to
+`REVOKED_BY_REVIEWER`.
+
+The current implementation uses **mock MCP data** in `main.py`; it does not
+connect to a live MCP server or change access in an identity system. Its
+LangGraph checkpoint uses in-memory storage for the duration of the process.
+This is a separate prototype from the packaged Java web demo below.
+
+To run the workflow, use Python 3.10 or newer, install the dependencies, and
+start it from this folder:
+
+```sh
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python main.py
+```
+
 ## Requirements
 
 - Java 17 or newer
